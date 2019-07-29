@@ -16,8 +16,10 @@ call vundle#begin()
 " Vundle
 Plugin 'VundleVim/Vundle.vim'
 
-" Molokai Theme
+" Colors Schemes
 Plugin 'tomasr/molokai'
+Plugin 'rainglow/vim'
+Plugin 'rafi/awesome-vim-colorschemes'
 
 " git wrapper
 Plugin 'tpope/vim-fugitive'
@@ -90,8 +92,9 @@ set wrap linebreak
 " ==========================================================
 
 " My color scheme
-colorscheme molokai
+colorscheme afterglow
 let g:airline_theme='molokai'
+
 
 " ==========================================================
 " Spaces and Tabs
@@ -171,6 +174,9 @@ set hlsearch
 " Space remove highlight serch
 nnoremap <space> :nohlsearch<CR>  " ,<space> close highlight
 
+" Remove directories from search
+set wildignore=*/node_modules/*,*/tmp/*
+
 " ==========================================================
 " Backspace Behavior
 " ==========================================================
@@ -229,7 +235,7 @@ set noswapfile
 " Config for Ale Linter
 " ==========================================================
 " Only run linters named in ale_linters settings.
-let g:ale_linters_explicit = 1
+" let g:ale_linters_explicit = 1
 
 " keep the sign gutter open at all times
 let g:ale_sign_column_always = 1
@@ -242,8 +248,8 @@ let g:ale_sign_warning = '--'
 let g:airline#extensions#ale#enabled = 1
 
 " Run linters only when save files
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave = 0
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_insert_leave = 0
 
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0

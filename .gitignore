@@ -37,3 +37,4 @@ LICENSE-MIT.txt
 README.md
 bootstrap.sh
 brew.sh
+*.vim
