@@ -18,7 +18,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Colors Schemes
 Plugin 'tomasr/molokai'
-Plugin 'rainglow/vim'
 Plugin 'rafi/awesome-vim-colorschemes'
 
 " git wrapper
@@ -57,6 +56,9 @@ Plugin 'jeetsukumaran/vim-pythonsense'
 " Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
 Plugin 'w0rp/ale'
 
+" Prettier formmating
+Plugin 'prettier/vim-prettier'
+
 call vundle#end()
 
 " enable syntax files load
@@ -82,24 +84,27 @@ nnoremap <C-S-Left> :cp<CR>
 nnoremap <C-S-Right> :cn<CR>
 
 " ==========================================================
+" Change tabs
+" ==========================================================
+nnoremap <C-Right> :tabnext<CR>
+nnoremap <C-Left> :tabprevious<CR>
+
+" ==========================================================
 " Text width
 " ==========================================================
 set tw=80
-set wrap linebreak
+" set wrap linebreak
 
 " ==========================================================
 " Colors
 " ==========================================================
-
 " My color scheme
 colorscheme afterglow
 let g:airline_theme='molokai'
 
-
 " ==========================================================
 " Spaces and Tabs
 " ==========================================================
-
 " Set tabs
 set tabstop=2 shiftwidth=2 softtabstop=2
 
@@ -109,20 +114,18 @@ set expandtab
 " ==========================================================
 " File Types Indenting Config
 " ==========================================================
-
 " turns autoindent on
 set autoindent
 
 " does the right thing (mostly) in programs
-set smartindent
+" set smartindent
 
 " stricter rules for C programs
-set cindent
+" set cindent
 
 " ==========================================================
 " UI Config
 " ==========================================================
-
 " show command in bottom bar
 set showcmd
 
@@ -164,7 +167,6 @@ nmap <F6> :NERDTreeToggle<CR>
 " ==========================================================
 " Searching
 " ==========================================================
-
 " search as characters are entered
 set incsearch
 
@@ -180,7 +182,6 @@ set wildignore=*/node_modules/*,*/tmp/*
 " ==========================================================
 " Backspace Behavior
 " ==========================================================
-
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
@@ -199,7 +200,6 @@ autocmd BufWritePre * %s/\s\+$//e
 " ==========================================================
 " Folds Config
 " ==========================================================
-
 " enable folding
 set foldenable
 
@@ -215,7 +215,6 @@ set foldmethod=syntax
 " ==========================================================
 " Errors Config
 " ==========================================================
-
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
@@ -225,7 +224,6 @@ set tm=500
 " ==========================================================
 " Backup Config
 " ==========================================================
-
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
 set nowb
@@ -259,9 +257,9 @@ let g:ale_list_window_size = 5
 
 " Do not lint or fix minified files.
 let g:ale_pattern_options = {
-\ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
-\ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
-\}
+      \ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
+      \ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
+      \}
 
 " If you configure g:ale_pattern_options outside of vimrc, you need this.
 let g:ale_pattern_options_enabled = 1
