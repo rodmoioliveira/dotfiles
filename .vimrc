@@ -1,71 +1,67 @@
 " ==========================================================
 " Inicial Setup
 " ==========================================================
-
 set nocompatible              " be improved, required
-filetype off                  " required
 
 " ==========================================================
 " Pluglins List and Configuration
 " ==========================================================
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
 " Vundle
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 
 " Colors Schemes
-Plugin 'tomasr/molokai'
-Plugin 'rafi/awesome-vim-colorschemes'
+Plug 'tomasr/molokai'
+Plug 'rafi/awesome-vim-colorschemes'
 
 " git wrapper
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Enable surroundins
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
 " vim commentary
-Plugin 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 
 " A solid language pack for Vim.
-Plugin 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 
 " status and tabline
-Plugin 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 
 " official theme repository for vim-airline
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes'
 
 " A tree explorer plugin for vim.
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 
 " A tree explorer plugin for vim.
-Plugin 'ntpeters/vim-better-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 
 " Auto Complete
-Plugin 'ycm-core/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe'
 
 " This plugin is used for displaying thin vertical lines at each indentation
-Plugin 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 
 " https://github.com/jeetsukumaran/vim-pythonsense
-Plugin 'jeetsukumaran/vim-pythonsense'
+Plug 'jeetsukumaran/vim-pythonsense'
 
 " Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
-Plugin 'w0rp/ale'
+Plug 'w0rp/ale'
 
 " Prettier formmating
-Plugin 'prettier/vim-prettier'
+Plug 'prettier/vim-prettier'
 
-call vundle#end()
+" Coc is an intellisense engine for vim8 & neovim.
+Plug 'neoclide/coc.nvim', {'do': 'npm install --frozen-lockfile'}
+Plug 'neoclide/coc-python', {'do': 'npm install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver', {'do': 'npm install --frozen-lockfile'}
+Plug 'neoclide/coc-css', {'do': 'npm install --frozen-lockfile'}
+Plug 'neoclide/coc-highlight', {'do': 'npm install --frozen-lockfile'}
 
-" enable syntax files load
-syntax on
-
-" enable plugins file detection and indenting
-filetype plugin indent on
+call plug#end()
 
 " ==========================================================
 " Map for indenting all file
@@ -118,7 +114,7 @@ set expandtab
 set autoindent
 
 " does the right thing (mostly) in programs
-" set smartindent
+set smartindent
 
 " stricter rules for C programs
 " set cindent

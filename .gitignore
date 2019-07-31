@@ -13,9 +13,6 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-bin/
-init/
-.vim/
 .osx
 .macos*
 .aliases
