@@ -44,8 +44,18 @@ Plug 'prettier/vim-prettier'
 
 " Coc is an intellisense engine for vim8 & neovim.
 Plug 'neoclide/coc.nvim', {'do': 'npm install --frozen-lockfile'}
+Plug 'neoclide/coc-snippets', {'do': 'npm install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver', {'do': 'npm install --frozen-lockfile'}
+Plug 'neoclide/coc-prettier', {'do': 'npm install --frozen-lockfile'}
+Plug 'neoclide/coc-eslint', {'do': 'npm install --frozen-lockfile'}
+Plug 'neoclide/coc-css', {'do': 'npm install --frozen-lockfile'}
+Plug 'neoclide/coc-highlight', {'do': 'npm install --frozen-lockfile'}
+
+" JsDocs
+Plug 'heavenshell/vim-jsdoc'
 
 call plug#end()
+
 
 " ==========================================================
 " Abbreviations
