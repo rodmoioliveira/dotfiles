@@ -8,9 +8,9 @@ HISTFILE=~/.zsh_history
 
 # ZSH_THEME="avit"
 
-# # Use modern completion system
-# autoload -Uz compinit
-# compinit
+# Use modern completion system
+autoload -Uz compinit
+compinit
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -35,7 +35,7 @@ CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -88,7 +88,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='nvim'
 fi
 
 # Compilation flags
@@ -121,8 +121,9 @@ alias glog='git log'
 alias ghist='git log --oneline --graph --decorate --all'
 alias gdiff='git diff'
 
-# Vim
-alias vimso='vim -c ":so ./Session.vim"'
+# Vim is now Neovim
+alias vim='nvim'
+alias vimso='nvim -c ":so ./Session.vim"'
 
 # NPM
 alias nrs='npm run server'
@@ -135,5 +136,5 @@ export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS=' -p /usr/bin/python3 '
 export PROJECT_HOME=$HOME/Devel
-source /home/rodolfo/.local/bin/virtualenvwrapper.sh
+source $HOME/.local/bin/virtualenvwrapper.sh
 
