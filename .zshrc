@@ -119,7 +119,8 @@ alias gco='git checkout'
 alias gcob='git checkout -b'
 alias glog='git log'
 alias ghist='git log --oneline --graph --decorate --all'
-alias gdiff='git diff'
+alias gd='git diff'
+alias gs='git stash --include-untracked'
 
 # Vim is now Neovim
 alias vim='nvim'
