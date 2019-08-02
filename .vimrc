@@ -39,9 +39,6 @@ Plug 'ntpeters/vim-better-whitespace'
 " This plugin is used for displaying thin vertical lines at each indentation
 Plug 'Yggdroot/indentLine'
 
-" Prettier formmating
-Plug 'prettier/vim-prettier'
-
 " Coc is an intellisense engine for vim8 & neovim.
 Plug 'neoclide/coc.nvim', {'do': 'npm install --frozen-lockfile'}
 Plug 'neoclide/coc-snippets', {'do': 'npm install --frozen-lockfile'}
@@ -54,8 +51,13 @@ Plug 'neoclide/coc-highlight', {'do': 'npm install --frozen-lockfile'}
 " JsDocs
 Plug 'heavenshell/vim-jsdoc'
 
-call plug#end()
+" Auto Pair
+Plug 'jiangmiao/auto-pairs'
 
+" Path Finder
+Plug 'kien/ctrlp.vim'
+
+call plug#end()
 
 " ==========================================================
 " Abbreviations
@@ -213,6 +215,11 @@ set tm=500
 set nobackup
 set nowb
 set noswapfile
+
+" ==========================================================
+" :Prettier format file
+" ==========================================================
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " ==========================================================
 " Coc Configurations
