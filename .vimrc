@@ -11,6 +11,7 @@ call plug#begin()
 " Colors Schemes
 Plug 'tomasr/molokai'
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'jasoncarr0/sidewalk-colorscheme'
 
 " git wrapper
 Plug 'tpope/vim-fugitive'
@@ -57,7 +58,19 @@ Plug 'jiangmiao/auto-pairs'
 " Path Finder
 Plug 'kien/ctrlp.vim'
 
+" Path Finder
+Plug 'alvan/vim-closetag'
+
+" This plugin will help you read these codes by
+" showing different levels of parentheses in different colors.
+Plug 'luochen1990/rainbow'
+
 call plug#end()
+
+" ==========================================================
+" Rainbow
+" ==========================================================
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 " ==========================================================
 " Abbreviations
