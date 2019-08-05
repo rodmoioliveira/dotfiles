@@ -96,6 +96,12 @@ set tw=80
 " set wrap linebreak
 
 " ==========================================================
+" When a file has been detected to have been changed outside of Vim and
+" it has not been changed inside of Vim, automatically read it again.
+" ==========================================================
+set autoread
+
+"==========================================================
 " Colors
 " ==========================================================
 " My color scheme
