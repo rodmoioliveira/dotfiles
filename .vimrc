@@ -186,10 +186,10 @@ set hlsearch
 nnoremap <space> :nohlsearch<CR>  " ,<space> close highlight
 
 " Remove directories from search
-set wildignore=*/node_modules/*,*/tmp/*
+set wildignore=*/node_modules/*,*/tmp/*,tags,*.jpg,*.png,*.pyc,*.min.js
 
 " F4 seach in vimgrep mode
-:map <F4> :execute "vimgrep /" . expand("<cword>") . "/j *.c"<Bar>cw<CR>
+:map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **"<Bar>cw<CR>
 
 " ==========================================================
 " CtrlP Config
