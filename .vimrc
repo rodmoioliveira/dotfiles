@@ -61,6 +61,9 @@ Plug 'kien/ctrlp.vim'
 " Path Finder
 Plug 'alvan/vim-closetag'
 
+" Autogenerate tags
+Plug 'ludovicchabant/vim-gutentags'
+
 " This plugin will help you read these codes by
 " showing different levels of parentheses in different colors.
 Plug 'luochen1990/rainbow'
@@ -184,6 +187,15 @@ nnoremap <space> :nohlsearch<CR>  " ,<space> close highlight
 
 " Remove directories from search
 set wildignore=*/node_modules/*,*/tmp/*
+
+" F4 seach in vimgrep mode
+:map <F4> :execute "vimgrep /" . expand("<cword>") . "/j *.c"<Bar>cw<CR>
+
+" ==========================================================
+" CtrlP Config
+" ==========================================================
+" Show hidden files
+let g:ctrlp_show_hidden = 1
 
 " ==========================================================
 " Backspace Behavior
