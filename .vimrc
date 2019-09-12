@@ -87,6 +87,11 @@ nnoremap <C-S-Left> :cp<CR>
 nnoremap <C-S-Right> :cn<CR>
 
 " ==========================================================
+" Sort Css Brace Content
+" ==========================================================
+:command! SortCSS :g#\({\n\)\@<=#.,/}/sort
+
+" ==========================================================
 " Change tabs
 " ==========================================================
 nnoremap <C-Right> :tabnext<CR>
@@ -186,7 +191,7 @@ set hlsearch
 nnoremap <space> :nohlsearch<CR>  " ,<space> close highlight
 
 " Remove directories from search
-set wildignore=*/node_modules/*,*/tmp/*,tags,*.jpg,*.png,*.pyc,*.min.js
+set wildignore=*/node_modules/*,*/tmp/*,tags,*.jpg,*.png,*.pyc,*.min.js,*/dist/*
 
 " F4 seach in vimgrep mode
 :map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **"<Bar>cw<CR>
@@ -309,7 +314,7 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 
 " filenames like *.xml, *.xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
 
 " filetypes like xml, html, xhtml, ...
 " These are the file types where this plugin is enabled.
