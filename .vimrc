@@ -64,6 +64,9 @@ Plug 'alvan/vim-closetag'
 " Autogenerate tags
 Plug 'ludovicchabant/vim-gutentags'
 
+" Autoreoad Change Files
+Plug 'djoshea/vim-autoread'
+
 " This plugin will help you read these codes by
 " showing different levels of parentheses in different colors.
 Plug 'luochen1990/rainbow'
