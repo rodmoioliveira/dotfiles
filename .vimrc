@@ -40,6 +40,9 @@ Plug 'ntpeters/vim-better-whitespace'
 " This plugin is used for displaying thin vertical lines at each indentation
 Plug 'Yggdroot/indentLine'
 
+" https://github.com/jeetsukumaran/vim-pythonsense
+Plug 'jeetsukumaran/vim-pythonsense'
+
 " Coc is an intellisense engine for vim8 & neovim.
 Plug 'neoclide/coc.nvim', {'do': 'npm install --frozen-lockfile'}
 Plug 'neoclide/coc-snippets', {'do': 'npm install --frozen-lockfile'}
@@ -48,6 +51,9 @@ Plug 'neoclide/coc-prettier', {'do': 'npm install --frozen-lockfile'}
 Plug 'neoclide/coc-eslint', {'do': 'npm install --frozen-lockfile'}
 Plug 'neoclide/coc-css', {'do': 'npm install --frozen-lockfile'}
 Plug 'neoclide/coc-highlight', {'do': 'npm install --frozen-lockfile'}
+
+" Clojure connection to repl
+Plug 'Olical/conjure', { 'tag': 'v2.1.0', 'do': 'bin/compile' }
 
 " JsDocs
 Plug 'heavenshell/vim-jsdoc'
@@ -103,7 +109,7 @@ nnoremap <C-Left> :tabprevious<CR>
 " Text width
 " ==========================================================
 set tw=80
-" set wrap linebreak
+set wrap linebreak
 
 " ==========================================================
 " When a file has been detected to have been changed outside of Vim and
@@ -320,11 +326,11 @@ let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
 
 " filetypes like xml, html, xhtml, ...
 " These are the file types where this plugin is enabled.
-let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_filetypes = 'html,xhtml,phtml,htmldjango'
 
 " filetypes like xml, xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
-let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+" let g:closetag_xhtml_filetypes = 'xhtml'
 
 " integer value [0|1]
 " This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
