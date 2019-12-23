@@ -141,4 +141,4 @@ source $HOME/.local/bin/virtualenvwrapper.sh
 
 
 # vim mode
-bindkey -v
+# bindkey -v
