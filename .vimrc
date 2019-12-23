@@ -12,6 +12,12 @@ call plug#begin()
 Plug 'tomasr/molokai'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'jasoncarr0/sidewalk-colorscheme'
+Plug 'kyoto-shift/film-noir'
+Plug 'jasoncarr0/sidewalk-colorscheme'
+Plug 'lucasprag/simpleblack'
+Plug 'theJian/Mogao'
+Plug 'sff1019/vim-joker'
+Plug 'szorfein/fantasy.vim'
 
 " git wrapper
 Plug 'tpope/vim-fugitive'
@@ -121,7 +127,7 @@ set autoread
 " Colors
 " ==========================================================
 " My color scheme
-colorscheme afterglow
+colorscheme 256_noir
 let g:airline_theme='molokai'
 
 " ==========================================================
