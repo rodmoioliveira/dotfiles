@@ -139,6 +139,8 @@ export VIRTUALENVWRAPPER_VIRTUALENV_ARGS=' -p /usr/bin/python3 '
 export PROJECT_HOME=$HOME/Devel
 source $HOME/.local/bin/virtualenvwrapper.sh
 
-
 # vim mode
 # bindkey -v
+
+# Syntax Highlighting
+source $ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

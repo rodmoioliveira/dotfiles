@@ -127,8 +127,8 @@ set autoread
 " Colors
 " ==========================================================
 " My color scheme
-colorscheme 256_noir
-let g:airline_theme='molokai'
+colorscheme paramount
+" let g:airline_theme='molokai'
 
 " ==========================================================
 " Spaces and Tabs
