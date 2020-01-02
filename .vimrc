@@ -128,7 +128,7 @@ set autoread
 " ==========================================================
 " My color scheme
 colorscheme paramount
-" let g:airline_theme='molokai'
+let g:airline_theme='violet'
 
 " ==========================================================
 " Spaces and Tabs
