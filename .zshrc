@@ -121,6 +121,7 @@ alias glog='git log'
 alias ghist='git log --oneline --graph --decorate --all'
 alias gd='git diff'
 alias gs='git stash --include-untracked'
+alias go='git open'
 
 # Vim is now Neovim
 alias vim='nvim'
