@@ -133,12 +133,12 @@ alias ns='npm start'
 alias nrb='npm run build'
 
 # DEPLOY TSURU
-alias bh='./config/build-templates.sh homolog'
-alias dh='git push homolog-api develop:master -f &&
+alias bh='echo "building homolog..." && ./config/build-templates.sh homolog && gac "build homolog"'
+alias dh='echo "deploy homolog..." && git push homolog-api develop:master -f &&
 git push homolog-dinamic develop:master -f &&
 git push homolog-votes develop:master -f'
-alias bp='./config/build-templates.sh prod'
-alias dp='git push prod-api master -f &&
+alias bp='echo "building production..." && ./config/build-templates.sh prod && gac "build prod"'
+alias dp='echo "deploy production..." && git push prod-api master -f &&
 git push prod-dinamic master -f &&
 git push prod-votes master -f'
 
