@@ -16,7 +16,7 @@ compinit
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/rodolfo/.oh-my-zsh
+export ZSH=/home/rodmoioliveira/Desenvolvimento/.ohmyzsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -72,9 +72,9 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git-open
-)
+# plugins=(
+#   git-open
+# )
 
 source $ZSH/oh-my-zsh.sh
 # User configuration
@@ -145,14 +145,23 @@ git push prod-votes master -f'
 
 
 # virtual env for python
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS=' -p /usr/bin/python3 '
-export PROJECT_HOME=$HOME/Devel
-source $HOME/.local/bin/virtualenvwrapper.sh
+# export WORKON_HOME=$HOME/.virtualenvs
+# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+# export VIRTUALENVWRAPPER_VIRTUALENV_ARGS=' -p /usr/bin/python3 '
+# export PROJECT_HOME=$HOME/Devel
+# source $HOME/.local/bin/virtualenvwrapper.sh
 
 # vim mode
 # bindkey -v
 
 # Syntax Highlighting
-source $ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/rodmoioliveira/Desenvolvimento/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Python version system
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+eval "$(pyenv virtualenv-init -)"
