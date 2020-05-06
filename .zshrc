@@ -143,7 +143,6 @@ alias dp='echo "deploy production..." && git push prod-api master -f &&
 git push prod-dinamic master -f &&
 git push prod-votes master -f'
 
-
 # virtual env for python
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
@@ -156,3 +155,11 @@ source $HOME/.local/bin/virtualenvwrapper.sh
 
 # Syntax Highlighting
 source $ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm

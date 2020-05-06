@@ -83,6 +83,9 @@ Plug 'djoshea/vim-autoread'
 " showing different levels of parentheses in different colors.
 Plug 'luochen1990/rainbow'
 
+" Flip boolean
+Plug 'sagarrakshe/toggle-bool'
+
 call plug#end()
 
 " ==========================================================
@@ -93,6 +96,11 @@ let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowTo
 " ==========================================================
 " Abbreviations
 " ==========================================================
+
+" ==========================================================
+" Toogle Bool
+" ==========================================================
+noremap <leader>r :ToggleBool<CR>
 
 " ==========================================================
 " Find new search team
@@ -150,6 +158,11 @@ set smartindent
 
 " stricter rules for C programs
 " set cindent
+
+" ==========================================================
+" YAML file support
+" ==========================================================
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " ==========================================================
 " UI Config
