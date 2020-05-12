@@ -86,6 +86,9 @@ Plug 'luochen1990/rainbow'
 " Flip boolean
 Plug 'sagarrakshe/toggle-bool'
 
+" Color hex
+Plug 'etdev/vim-hexcolor'
+
 call plug#end()
 
 " ==========================================================
