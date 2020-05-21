@@ -61,6 +61,9 @@ Plug 'neoclide/coc-highlight', {'do': 'npm install --frozen-lockfile'}
 " Clojure connection to repl
 Plug 'Olical/conjure', { 'tag': 'v2.1.0', 'do': 'bin/compile' }
 
+" Linter
+Plug 'dense-analysis/ale'
+
 " JsDocs
 Plug 'heavenshell/vim-jsdoc'
 
@@ -328,6 +331,8 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nmap <silent> [x <Plug>(ale_previous_wrap)
+nmap <silent> ]x <Plug>(ale_next_wrap)
 
 " Use `:F` to format current buffer
 command! -nargs=0 F :call CocAction('format')
@@ -370,3 +375,6 @@ let g:closetag_shortcut = '>'
 
 " Add > at current position without closing the current tag, default is ''
 let g:closetag_close_shortcut = '<leader>>'
+
+" Clojure linter
+let g:ale_linters = {'clojure': ['clj-kondo', 'joker']}
