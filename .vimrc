@@ -2,7 +2,7 @@
 " Inicial Setup
 " ==========================================================
 set nocompatible              " be improved, required
-
+"
 " ==========================================================
 " Pluglins List and Configuration
 " ==========================================================
@@ -493,3 +493,13 @@ let g:mkdp_port = ''
 " preview page title
 " ${name} will be replace with the file name
 let g:mkdp_page_title = '「${name}」'
+
+let g:LanguageClient_serverCommands = {
+    \ 'r': ['R', '--slave', '-e', 'languageserver::run()'],
+    \ }
+
+let R_external_term = 11
+
+
+set conceallevel=0
+autocmd FileType markdown let g:indentLine_enabled=0
