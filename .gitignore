@@ -16,5 +16,3 @@ Thumbs.db
 .lsp/
 LICENSE-MIT.txt
 README.md
-*.vim
-tags
