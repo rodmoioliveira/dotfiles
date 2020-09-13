@@ -16,7 +16,7 @@ compinit
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/rodmoioliveira/Desenvolvimento/.ohmyzsh
+export ZSH=$HOME/Desenvolvimento/.ohmyzsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -133,7 +133,7 @@ alias ns='npm start'
 alias nrb='npm run build'
 
 # Syntax Highlighting
-source /home/rodmoioliveira/Desenvolvimento/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/Desenvolvimento/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
