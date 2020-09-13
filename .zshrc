@@ -129,37 +129,21 @@ alias vimso='nvim -c ":so ./Session.vim"'
 
 # NPM
 alias nrs='npm run server'
-alias nrs='npm run server'
 alias ns='npm start'
 alias nrb='npm run build'
 
-# DEPLOY TSURU
-alias bh='echo "building homolog..." && ./config/build-templates.sh homolog && gac "build homolog"'
-alias dh='echo "deploy homolog..." && git push homolog-api develop:master -f &&
-git push homolog-dinamic develop:master -f &&
-git push homolog-votes develop:master -f'
-alias bp='echo "building production..." && ./config/build-templates.sh prod && gac "build prod"'
-alias dp='echo "deploy production..." && git push prod-api master -f &&
-git push prod-dinamic master -f &&
-git push prod-votes master -f'
-
-# virtual env for python
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS=' -p /usr/bin/python3 '
-export PROJECT_HOME=$HOME/Devel
-source $HOME/.local/bin/virtualenvwrapper.sh
-
-# vim mode
-# bindkey -v
-
 # Syntax Highlighting
-source $ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/rodmoioliveira/Desenvolvimento/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# PYENV
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+# CARGO
+export PATH="$HOME/.cargo/bin:$PATH"
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
