@@ -130,3 +130,5 @@ alias nrb='npm run build'
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
+# GraalVM
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java11-20.2.0/Contents/Home
