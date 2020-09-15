@@ -123,6 +123,9 @@ alias go='git open'
 alias vim='nvim'
 alias vimso='nvim -c ":so ./Session.vim"'
 
+# Go to DEV dir
+alias dev='cd ~/Desenvolvimento'
+
 # NPM
 alias nrs='npm run server'
 alias ns='npm start'
