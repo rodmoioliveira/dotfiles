@@ -1,5 +1,9 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# GraalVM
+export PATH=/Library/Java/JavaVirtualMachines/graalvm-ce-java8-20.2.0/Contents/Home/bin:$PATH
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java11-20.2.0/Contents/Home 
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/rodolfo.moi/.oh-my-zsh"
@@ -130,5 +134,3 @@ alias nrb='npm run build'
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
-# GraalVM
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java11-20.2.0/Contents/Home
