@@ -500,6 +500,5 @@ let g:LanguageClient_serverCommands = {
 
 let R_external_term = 11
 
-
 set conceallevel=0
 autocmd FileType markdown let g:indentLine_enabled=0

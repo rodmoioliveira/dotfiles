@@ -3,7 +3,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # GraalVM
 export PATH=/Library/Java/JavaVirtualMachines/graalvm-ce-java8-20.2.0/Contents/Home/bin:$PATH
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java11-20.2.0/Contents/Home 
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java11-20.2.0/Contents/Home
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/rodolfo.moi/.oh-my-zsh"
@@ -129,8 +129,7 @@ alias ns='npm start'
 alias nrb='npm run build'
 
 # Syntax Highlighting
-source /usr/local/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
+source /usr/local/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
-
