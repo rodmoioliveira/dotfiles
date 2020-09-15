@@ -128,8 +128,15 @@ alias nrs='npm run server'
 alias ns='npm start'
 alias nrb='npm run build'
 
+# Config VIM
+alias configvim='vim ~/dotfiles/.vimrc'
+alias configzsh='vim ~/dotfiles/.zshrc'
+
 # Syntax Highlighting
 source /usr/local/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# CARGO
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
