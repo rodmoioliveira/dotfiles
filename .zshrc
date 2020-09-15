@@ -126,6 +126,9 @@ alias vimso='nvim -c ":so ./Session.vim"'
 # Go to DEV dir
 alias dev='cd ~/Desenvolvimento'
 
+# Go to DOTFILES dir
+alias dot='cd ~/dotfiles'
+
 # NPM
 alias nrs='npm run server'
 alias ns='npm start'
