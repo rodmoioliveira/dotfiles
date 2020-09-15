@@ -129,7 +129,7 @@ alias ns='npm start'
 alias nrb='npm run build'
 
 # Syntax Highlighting
-# source $HOME/Desenvolvimento/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
