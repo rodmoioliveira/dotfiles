@@ -118,6 +118,7 @@ alias ghist='git log --oneline --graph --decorate --all'
 alias gd='git diff'
 alias gs='git stash --include-untracked'
 alias go='git open'
+alias gcl='git clone'
 
 # Vim is now Neovim
 alias vim='nvim'
@@ -137,6 +138,7 @@ alias nrb='npm run build'
 # Config VIM
 alias configvim='vim ~/dotfiles/.vimrc'
 alias configzsh='vim ~/dotfiles/.zshrc'
+alias configssh='vim /Users/rodolfo.moi/.ssh/'
 
 # Syntax Highlighting
 source /usr/local/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -146,3 +148,11 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
+
+# YARN
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+export LDFLAGS="-L/usr/local/opt/icu4c/lib"
+export CPPFLAGS="-I/usr/local/opt/icu4c/include"
+
+export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
