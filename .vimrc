@@ -56,6 +56,9 @@ Plug 'tpope/vim-commentary'
 " A solid language pack for Vim.
 Plug 'sheerun/vim-polyglot'
 
+" GraphQL Support
+Plug 'jparise/vim-graphql'
+
 " status and tabline
 Plug 'vim-airline/vim-airline'
 
@@ -88,8 +91,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " Clojure connection to repl
 Plug 'Olical/conjure', { 'tag': 'v2.1.0', 'do': 'bin/compile' }
 
-" Linter
-Plug 'dense-analysis/ale'
+" " Linter
+" Plug 'dense-analysis/ale'
 
 " JsDocs
 Plug 'heavenshell/vim-jsdoc'
@@ -361,8 +364,8 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
-nmap <silent> [x <Plug>(ale_previous_wrap)
-nmap <silent> ]x <Plug>(ale_next_wrap)
+" nmap <silent> [x <Plug>(ale_previous_wrap)
+" nmap <silent> ]x <Plug>(ale_next_wrap)
 
 " Use `:F` to format current buffer
 command! -nargs=0 F :call CocAction('format')
@@ -396,9 +399,9 @@ let g:closetag_emptyTags_caseSensitive = 1
 " dict
 " Disables auto-close if not in a "valid" region (based on filetype)
 let g:closetag_regions = {
-    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-    \ 'javascript.jsx': 'jsxRegion',
-    \ }
+      \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+      \ 'javascript.jsx': 'jsxRegion',
+      \ }
 
 " Shortcut for closing tags, default is '>'
 let g:closetag_shortcut = '>'
@@ -407,7 +410,7 @@ let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
 " Clojure linter
-let g:ale_linters = {'clojure': ['clj-kondo', 'joker']}
+" let g:ale_linters = {'clojure': ['clj-kondo', 'joker']}
 
 " set to 1, nvim will open the preview window after entering the markdown buffer
 " default: 0
@@ -467,17 +470,17 @@ let g:mkdp_browserfunc = ''
 " sequence_diagrams: js-sequence-diagrams options
 " content_editable: if enable content editable for preview page, default: v:false
 let g:mkdp_preview_options = {
-    \ 'mkit': {},
-    \ 'katex': {},
-    \ 'uml': {},
-    \ 'maid': {},
-    \ 'disable_sync_scroll': 0,
-    \ 'sync_scroll_type': 'middle',
-    \ 'hide_yaml_meta': 1,
-    \ 'sequence_diagrams': {},
-    \ 'flowchart_diagrams': {},
-    \ 'content_editable': v:false
-    \ }
+      \ 'mkit': {},
+      \ 'katex': {},
+      \ 'uml': {},
+      \ 'maid': {},
+      \ 'disable_sync_scroll': 0,
+      \ 'sync_scroll_type': 'middle',
+      \ 'hide_yaml_meta': 1,
+      \ 'sequence_diagrams': {},
+      \ 'flowchart_diagrams': {},
+      \ 'content_editable': v:false
+      \ }
 
 " use a custom markdown style must be absolute path
 " like '/Users/username/markdown.css' or expand('~/markdown.css')
@@ -495,10 +498,92 @@ let g:mkdp_port = ''
 let g:mkdp_page_title = '「${name}」'
 
 let g:LanguageClient_serverCommands = {
-    \ 'r': ['R', '--slave', '-e', 'languageserver::run()'],
-    \ }
+      \ 'r': ['R', '--slave', '-e', 'languageserver::run()'],
+      \ }
 
 let R_external_term = 11
 
 set conceallevel=0
 autocmd FileType markdown let g:indentLine_enabled=0
+
+" GraphQL Support
+au BufNewFile,BufRead *.prisma setfiletype graphql
+
+set tabline=%!MyTabLine()  " custom tab pages line
+function MyTabLine()
+  let s = '' " complete tabline goes here
+  " loop through each tab page
+  for t in range(tabpagenr('$'))
+    " set highlight
+    if t + 1 == tabpagenr()
+      let s .= '%#TabLineSel#'
+    else
+      let s .= '%#TabLine#'
+    endif
+    " set the tab page number (for mouse clicks)
+    let s .= '%' . (t + 1) . 'T'
+    let s .= ' '
+    " set page number string
+    let s .= t + 1 . ' '
+    " get buffer names and statuses
+    let n = ''      "temp string for buffer names while we loop and check buftype
+    let m = 0       " &modified counter
+    let bc = len(tabpagebuflist(t + 1))     "counter to avoid last ' '
+    " loop through each buffer in a tab
+    for b in tabpagebuflist(t + 1)
+      " buffer types: quickfix gets a [Q], help gets [H]{base fname}
+      " others get 1dir/2dir/3dir/fname shortened to 1/2/3/fname
+      if getbufvar( b, "&buftype" ) == 'help'
+        let n .= '[H]' . fnamemodify( bufname(b), ':t:s/.txt$//' )
+      elseif getbufvar( b, "&buftype" ) == 'quickfix'
+        let n .= '[Q]'
+      else
+        let n .= pathshorten(bufname(b))
+      endif
+      " check and ++ tab's &modified count
+      if getbufvar( b, "&modified" )
+        let m += 1
+      endif
+      " no final ' ' added...formatting looks better done later
+      if bc > 1
+        let n .= ' '
+      endif
+      let bc -= 1
+    endfor
+    " add modified label [n+] where n pages in tab are modified
+    if m > 0
+      let s .= '[' . m . '+]'
+    endif
+    " select the highlighting for the buffer names
+    " my default highlighting only underlines the active tab
+    " buffer names.
+    if t + 1 == tabpagenr()
+      let s .= '%#TabLineSel#'
+    else
+      let s .= '%#TabLine#'
+    endif
+    " add buffer names
+    if n == ''
+      let s.= '[New]'
+    else
+      let s .= n
+    endif
+    " switch to no underlining and add final space to buffer list
+    let s .= ' '
+  endfor
+  " after the last tab fill with TabLineFill and reset tab page nr
+  let s .= '%#TabLineFill#%T'
+  " right-align the label to close the current tab page
+  if tabpagenr('$') > 1
+    let s .= '%=%#TabLineFill#%999Xclose'
+  endif
+  return s
+endfunction
+
+function RandomColorScheme()
+  let mycolors = split(globpath(&rtp,"**/colors/*.vim"),"\n")
+  exe 'so ' . mycolors[localtime() % len(mycolors)]
+  unlet mycolors
+endfunction
+
+:command Nc call RandomColorScheme()

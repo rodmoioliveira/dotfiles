@@ -119,6 +119,7 @@ alias gd='git diff'
 alias gs='git stash --include-untracked'
 alias go='git open'
 alias gcl='git clone'
+alias gri='git rebase -i'
 
 # Vim is now Neovim
 alias vim='nvim'
@@ -139,6 +140,10 @@ alias nrb='npm run build'
 alias configvim='vim ~/dotfiles/.vimrc'
 alias configzsh='vim ~/dotfiles/.zshrc'
 alias configssh='vim /Users/rodolfo.moi/.ssh/'
+
+# YARN
+alias y='yarn'
+alias yd='yarn dev'
 
 # Syntax Highlighting
 source /usr/local/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

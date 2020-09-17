@@ -1,3 +1,4 @@
+.graphqlrc
 *.vim
 tags
 tags.lock
