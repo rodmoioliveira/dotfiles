@@ -120,7 +120,11 @@ Plug 'etdev/vim-hexcolor'
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 
 " fzf fuzzy finder
+" https://github.com/junegunn/fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+" https://github.com/junegunn/fzf.vim
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -360,6 +364,21 @@ command! -nargs=0 F :call CocAction('format')
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " ==========================================================
+" coc-git
+" ==========================================================
+set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
+" navigate chunks of current buffer
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" show chunk diff at current position
+nmap gs <Plug>(coc-git-chunkinfo)
+" create text object for git chunks
+omap ig <Plug>(coc-git-chunk-inner)
+xmap ig <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer)"
+
+" ==========================================================
 " vim-closetag
 " ==========================================================
 " filenames like *.xml, *.html, *.xhtml, ...
@@ -491,3 +510,28 @@ let R_external_term = 11
 
 set conceallevel=0
 autocmd FileType markdown let g:indentLine_enabled=0
+
+" ==========================================================
+" fzf.vim
+" https://github.com/junegunn/fzf.vim#example-advanced-ripgrep-integration
+" ==========================================================
+nnoremap <silent> <Leader>L :Lines<CR>
+
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
+" Custom statusline
+function! s:fzf_statusline()
+  highlight fzf1 ctermfg=161 ctermbg=251
+  highlight fzf2 ctermfg=23 ctermbg=251
+  highlight fzf3 ctermfg=237 ctermbg=251
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+endfunction
+
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
