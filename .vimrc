@@ -177,7 +177,7 @@ set autoread
 " Colors
 " ==========================================================
 " My color scheme
-colorscheme paramount
+colorscheme falcon
 let g:airline_theme='violet'
 
 " ==========================================================
