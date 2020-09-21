@@ -82,6 +82,7 @@ Plug 'neoclide/coc-prettier', {'do': 'npm install --frozen-lockfile'}
 Plug 'neoclide/coc-eslint', {'do': 'npm install --frozen-lockfile'}
 Plug 'neoclide/coc-css', {'do': 'npm install --frozen-lockfile'}
 Plug 'neoclide/coc-highlight', {'do': 'npm install --frozen-lockfile'}
+Plug 'neoclide/coc-git', {'do': 'npm install --frozen-lockfile'}
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
@@ -366,7 +367,6 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " ==========================================================
 " coc-git
 " ==========================================================
-set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
 " navigate chunks of current buffer
 nmap [g <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)
