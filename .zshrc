@@ -125,6 +125,9 @@ alias go='git open'
 alias gcl='git clone'
 alias gri='git rebase -i'
 
+# Fzf Preview
+alias fzfp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+
 # Vim is now Neovim
 alias vim='nvim'
 alias vimso='nvim -c ":so ./Session.vim"'
