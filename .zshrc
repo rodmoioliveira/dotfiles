@@ -128,6 +128,12 @@ alias gri='git rebase -i'
 # Fzf Preview
 alias fzfp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 
+# https://github.com/junegunn/fzf#tips
+# use fs to pipe into fzf
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 # Vim is now Neovim
 alias vim='nvim'
 alias vimso='nvim -c ":so ./Session.vim"'
