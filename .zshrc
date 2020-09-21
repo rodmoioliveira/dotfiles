@@ -122,15 +122,27 @@ alias ghist='git log --oneline --graph --decorate --all'
 alias gd='git diff'
 alias gs='git stash --include-untracked'
 alias go='git open'
+alias gcl='git clone'
+alias gri='git rebase -i'
 
 # Vim is now Neovim
 alias vim='nvim'
 alias vimso='nvim -c ":so ./Session.vim"'
 
+# Go to DEV dir
+alias dev='cd ~/Desenvolvimento'
+
+# Go to DOTFILES dir
+alias dot='cd ~/.dotfiles'
+
 # NPM
 alias nrs='npm run server'
 alias ns='npm start'
 alias nrb='npm run build'
+
+# Config VIM
+alias configvim='vim ~/.dotfiles/.vimrc'
+alias configzsh='vim ~/.dotfiles/.zshrc'
 
 # Syntax Highlighting
 source $HOME/Desenvolvimento/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
