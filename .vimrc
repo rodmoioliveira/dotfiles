@@ -97,10 +97,7 @@ Plug 'heavenshell/vim-jsdoc'
 " Auto Pair
 Plug 'jiangmiao/auto-pairs'
 
-" Path Finder
-Plug 'kien/ctrlp.vim'
-
-" Path Finder
+" Close tags
 Plug 'alvan/vim-closetag'
 
 " Autogenerate tags
@@ -122,16 +119,15 @@ Plug 'etdev/vim-hexcolor'
 " R
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 
+" fzf fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
 call plug#end()
 
 " ==========================================================
 " Rainbow
 " ==========================================================
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
-
-" ==========================================================
-" Abbreviations
-" ==========================================================
 
 " ==========================================================
 " Toogle Bool
@@ -238,7 +234,6 @@ set foldcolumn=1
 " ==========================================================
 " NERDTree - Initial Setup
 " ==========================================================
-" autocmd vimenter * NERDTree
 nmap <F6> :NERDTreeToggle<CR>
 
 " ==========================================================
@@ -258,12 +253,6 @@ set wildignore=*/node_modules/*,*/tmp/*,tags,*.jpg,*.png,*.pyc,*.min.js,*/dist/*
 
 " F4 seach in vimgrep mode
 :map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **"<Bar>cw<CR>
-
-" ==========================================================
-" CtrlP Config
-" ==========================================================
-" Show hidden files
-let g:ctrlp_show_hidden = 1
 
 " ==========================================================
 " Backspace Behavior
@@ -396,9 +385,9 @@ let g:closetag_emptyTags_caseSensitive = 1
 " dict
 " Disables auto-close if not in a "valid" region (based on filetype)
 let g:closetag_regions = {
-    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-    \ 'javascript.jsx': 'jsxRegion',
-    \ }
+      \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+      \ 'javascript.jsx': 'jsxRegion',
+      \ }
 
 " Shortcut for closing tags, default is '>'
 let g:closetag_shortcut = '>'
@@ -467,17 +456,17 @@ let g:mkdp_browserfunc = ''
 " sequence_diagrams: js-sequence-diagrams options
 " content_editable: if enable content editable for preview page, default: v:false
 let g:mkdp_preview_options = {
-    \ 'mkit': {},
-    \ 'katex': {},
-    \ 'uml': {},
-    \ 'maid': {},
-    \ 'disable_sync_scroll': 0,
-    \ 'sync_scroll_type': 'middle',
-    \ 'hide_yaml_meta': 1,
-    \ 'sequence_diagrams': {},
-    \ 'flowchart_diagrams': {},
-    \ 'content_editable': v:false
-    \ }
+      \ 'mkit': {},
+      \ 'katex': {},
+      \ 'uml': {},
+      \ 'maid': {},
+      \ 'disable_sync_scroll': 0,
+      \ 'sync_scroll_type': 'middle',
+      \ 'hide_yaml_meta': 1,
+      \ 'sequence_diagrams': {},
+      \ 'flowchart_diagrams': {},
+      \ 'content_editable': v:false
+      \ }
 
 " use a custom markdown style must be absolute path
 " like '/Users/username/markdown.css' or expand('~/markdown.css')
@@ -495,11 +484,10 @@ let g:mkdp_port = ''
 let g:mkdp_page_title = '「${name}」'
 
 let g:LanguageClient_serverCommands = {
-    \ 'r': ['R', '--slave', '-e', 'languageserver::run()'],
-    \ }
+      \ 'r': ['R', '--slave', '-e', 'languageserver::run()'],
+      \ }
 
 let R_external_term = 11
-
 
 set conceallevel=0
 autocmd FileType markdown let g:indentLine_enabled=0
