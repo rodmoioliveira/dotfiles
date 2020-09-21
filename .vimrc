@@ -85,6 +85,7 @@ Plug 'neoclide/coc-prettier', {'do': 'npm install --frozen-lockfile'}
 Plug 'neoclide/coc-eslint', {'do': 'npm install --frozen-lockfile'}
 Plug 'neoclide/coc-css', {'do': 'npm install --frozen-lockfile'}
 Plug 'neoclide/coc-highlight', {'do': 'npm install --frozen-lockfile'}
+Plug 'neoclide/coc-git', {'do': 'npm install --frozen-lockfile'}
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
@@ -125,6 +126,13 @@ Plug 'etdev/vim-hexcolor'
 " R
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 
+" fzf fuzzy finder
+" https://github.com/junegunn/fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+" https://github.com/junegunn/fzf.vim
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 " ==========================================================
@@ -157,6 +165,11 @@ nnoremap <C-S-Right> :cn<CR>
 " ==========================================================
 nnoremap <C-Right> :tabnext<CR>
 nnoremap <C-Left> :tabprevious<CR>
+
+" ==========================================================
+" Go to definition in new tab
+" ==========================================================
+nnoremap <C-[> <C-w><C-]><C-w>T
 
 " ==========================================================
 " Text width
@@ -374,6 +387,22 @@ command! -nargs=0 F :call CocAction('format')
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " ==========================================================
+" coc-git
+" ==========================================================
+" navigate chunks of current buffer
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+
+" show chunk diff at current position
+nmap gs <Plug>(coc-git-chunkinfo)
+
+" create text object for git chunks
+omap ig <Plug>(coc-git-chunk-inner)
+xmap ig <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer)"
+
+" ==========================================================
 " vim-closetag
 " ==========================================================
 " filenames like *.xml, *.html, *.xhtml, ...
@@ -580,10 +609,27 @@ function MyTabLine()
   return s
 endfunction
 
-function RandomColorScheme()
-  let mycolors = split(globpath(&rtp,"**/colors/*.vim"),"\n")
-  exe 'so ' . mycolors[localtime() % len(mycolors)]
-  unlet mycolors
+" ==========================================================
+" fzf.vim
+" https://github.com/junegunn/fzf.vim#example-advanced-ripgrep-integration
+" ==========================================================
+nnoremap <silent> <Leader>L :Lines<CR>
+
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
+" Custom statusline
+function! s:fzf_statusline()
+  highlight fzf1 ctermfg=161 ctermbg=251
+  highlight fzf2 ctermfg=23 ctermbg=251
+  highlight fzf3 ctermfg=237 ctermbg=251
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
 endfunction
 
-:command Nc call RandomColorScheme()
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
