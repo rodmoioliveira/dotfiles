@@ -132,6 +132,10 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+gcos() {
+ git checkout "$(git branch --all | fzf | tr -d '[:space:]')"
+}
+
 # Vim is now Neovim
 alias vim='nvim'
 alias vimso='nvim -c ":so ./Session.vim"'
