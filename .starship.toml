@@ -1,32 +1,5 @@
 # Don't print a new line at the start of the prompt
 add_newline = false
 
-# [directory]
-# truncation_length = 8
-
-[nodejs]
-symbol = "🤖 "
-
-[rust]
-symbol = "⚙️ "
-
-# [git_branch]
-# symbol = "🌱 "
-
-# [git_commit]
-# commit_hash_length = 4
-
-# [git_status]
-# conflicted = "🏳"
-# ahead = "🏎💨"
-# behind = "😰"
-# diverged = "😵"
-# untracked = "🤷‍"
-# stashed = "📦"
-# modified = "📝"
-# staged.value = "++"
-# staged.style = "green"
-# staged_count.enabled = true
-# staged_count.style = "green"
-# renamed = "👅"
-# deleted = "🗑"
+[directory]
+truncation_length = 8
