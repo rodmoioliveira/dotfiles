@@ -152,9 +152,9 @@ alias ns='npm start'
 alias nrb='npm run build'
 
 # Config VIM
-alias configvim='vim ~/dotfiles/.vimrc'
-alias configzsh='vim ~/dotfiles/.zshrc'
-alias configssh='vim /Users/rodolfo.moi/.ssh/'
+alias cvim='vim ~/dotfiles/.vimrc'
+alias czsh='vim ~/dotfiles/.zshrc'
+alias cssh='vim /Users/rodolfo.moi/.ssh/'
 
 # YARN
 alias y='yarn'

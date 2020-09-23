@@ -163,13 +163,8 @@ nnoremap <C-S-Right> :cn<CR>
 " ==========================================================
 " Change tabs
 " ==========================================================
-nnoremap <C-Right> :tabnext<CR>
-nnoremap <C-Left> :tabprevious<CR>
-
-" ==========================================================
-" Go to definition in new tab
-" ==========================================================
-nnoremap <C-[> <C-w><C-]><C-w>T
+nnoremap <s-right> :tabnext<CR>
+nnoremap <s-left> :tabprevious<CR>
 
 " ==========================================================
 " Text width
@@ -188,7 +183,7 @@ set autoread
 " ==========================================================
 " My color scheme
 colorscheme paramount
-let g:airline_theme='violet'
+let g:airline_theme='dark'
 
 " ==========================================================
 " Spaces and Tabs
