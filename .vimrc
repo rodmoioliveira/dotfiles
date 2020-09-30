@@ -171,7 +171,7 @@ set wrap linebreak
 " ==========================================================
 " Spell check and line wrap just for git commit messages
 " ==========================================================
-autocmd Filetype gitcommit setlocal spell textwidth=72
+autocmd Filetype gitcommit setlocal spelllang=pt spell textwidth=72
 
 " ==========================================================
 " When a file has been detected to have been changed outside of Vim and
