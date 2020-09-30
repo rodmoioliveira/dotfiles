@@ -150,8 +150,8 @@ alias ns='npm start'
 alias nrb='npm run build'
 
 # Config VIM
-alias configvim='vim ~/.dotfiles/.vimrc'
-alias configzsh='vim ~/.dotfiles/.zshrc'
+alias cvim='vim ~/.dotfiles/.vimrc'
+alias czsh='vim ~/.dotfiles/.zshrc'
 
 # Syntax Highlighting
 source $HOME/Desenvolvimento/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -168,3 +168,5 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+eval "$(starship init zsh)"
