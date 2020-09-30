@@ -1,7 +1,7 @@
 " ==========================================================
 " Inicial Setup
 " ==========================================================
-set nocompatible              " be improved, required
+set nocompatible " be improved, required
 "
 " ==========================================================
 " Pluglins List and Configuration
@@ -92,8 +92,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " Clojure connection to repl
 Plug 'Olical/conjure', { 'tag': 'v4.5.0' }
 
-" " Linter
-" Plug 'dense-analysis/ale'
+" Linter
+Plug 'dense-analysis/ale'
 
 " JsDocs
 Plug 'heavenshell/vim-jsdoc'
@@ -141,10 +141,6 @@ call plug#end()
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 " ==========================================================
-" Abbreviations
-" ==========================================================
-
-" ==========================================================
 " Toogle Bool
 " ==========================================================
 noremap <leader>r :ToggleBool<CR>
@@ -169,8 +165,13 @@ nnoremap <s-left> :tabprevious<CR>
 " ==========================================================
 " Text width
 " ==========================================================
-set tw=80
+set textwidth=80
 set wrap linebreak
+
+" ==========================================================
+" Spell check and line wrap just for git commit messages
+" ==========================================================
+autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " ==========================================================
 " When a file has been detected to have been changed outside of Vim and
@@ -181,7 +182,6 @@ set autoread
 "==========================================================
 " Colors
 " ==========================================================
-" My color scheme
 colorscheme paramount
 let g:airline_theme='dark'
 
@@ -266,15 +266,6 @@ nnoremap <space> :nohlsearch<CR>  " ,<space> close highlight
 
 " Remove directories from search
 set wildignore=*/node_modules/*,*/tmp/*,tags,*.jpg,*.png,*.pyc,*.min.js,*/dist/*
-
-" F4 seach in vimgrep mode
-:map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **"<Bar>cw<CR>
-
-" ==========================================================
-" CtrlP Config
-" ==========================================================
-" Show hidden files
-let g:ctrlp_show_hidden = 1
 
 " ==========================================================
 " Backspace Behavior
@@ -372,8 +363,8 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
-" nmap <silent> [x <Plug>(ale_previous_wrap)
-" nmap <silent> ]x <Plug>(ale_next_wrap)
+nmap <silent> [x <Plug>(ale_previous_wrap)
+nmap <silent> ]x <Plug>(ale_next_wrap)
 
 " Use `:F` to format current buffer
 command! -nargs=0 F :call CocAction('format')
@@ -434,7 +425,7 @@ let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
 " Clojure linter
-" let g:ale_linters = {'clojure': ['clj-kondo', 'joker']}
+let g:ale_linters = {'clojure': ['clj-kondo', 'joker']}
 
 " set to 1, nvim will open the preview window after entering the markdown buffer
 " default: 0
