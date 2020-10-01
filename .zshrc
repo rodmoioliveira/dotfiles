@@ -181,3 +181,5 @@ export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
 # Starship Config
 export STARSHIP_CONFIG=~/dotfiles/.starship.toml
 eval "$(starship init zsh)"
+
+function bff(){ command bat "$1" | tr -d '\040\011\015' | xargs -0 -n 1 -I {} http --ignore-stdin POST :4008/graphql query={} -p hb }
