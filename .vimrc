@@ -1,7 +1,7 @@
 " ==========================================================
 " Inicial Setup
 " ==========================================================
-set nocompatible              " be improved, required
+set nocompatible " be improved, required
 "
 " ==========================================================
 " Pluglins List and Configuration
@@ -159,8 +159,13 @@ nnoremap <C-Left> :tabprevious<CR>
 " ==========================================================
 " Text width
 " ==========================================================
-set tw=80
+set textwidth=80
 set wrap linebreak
+
+" ==========================================================
+" Spell check and line wrap just for git commit messages
+" ==========================================================
+autocmd Filetype gitcommit setlocal spelllang=pt spell textwidth=72
 
 " ==========================================================
 " When a file has been detected to have been changed outside of Vim and
@@ -171,7 +176,6 @@ set autoread
 "==========================================================
 " Colors
 " ==========================================================
-" My color scheme
 colorscheme falcon
 let g:airline_theme='violet'
 
@@ -255,9 +259,6 @@ nnoremap <space> :nohlsearch<CR>  " ,<space> close highlight
 
 " Remove directories from search
 set wildignore=*/node_modules/*,*/tmp/*,tags,*.jpg,*.png,*.pyc,*.min.js,*/dist/*
-
-" F4 seach in vimgrep mode
-:map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **"<Bar>cw<CR>
 
 " ==========================================================
 " Backspace Behavior
