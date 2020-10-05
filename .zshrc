@@ -6,8 +6,6 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-# ZSH_THEME="avit"
-
 # Use modern completion system
 autoload -Uz compinit
 compinit
@@ -92,7 +90,7 @@ else
 fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -170,4 +168,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
+# Z
+eval "$(zoxide init zsh)"
+
+# Starsphip
+export STARSHIP_CONFIG=~/.dotfiles/starship_config.toml
 eval "$(starship init zsh)"

@@ -3,3 +3,6 @@ tags
 tags.lock
 tags.temp
 .lsp/
+.lein-repl-history
+.shadow-cljs/
+.nrepl-port
