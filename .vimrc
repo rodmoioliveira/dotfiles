@@ -177,7 +177,7 @@ set autoread
 " Colors
 " ==========================================================
 colorscheme falcon
-let g:airline_theme='violet'
+let g:airline_theme='falcon'
 
 " ==========================================================
 " Spaces and Tabs
@@ -516,8 +516,6 @@ autocmd FileType markdown let g:indentLine_enabled=0
 " fzf.vim
 " https://github.com/junegunn/fzf.vim#example-advanced-ripgrep-integration
 " ==========================================================
-nnoremap <silent> <Leader>L :Lines<CR>
-
 function! RipgrepFzf(query, fullscreen)
   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
