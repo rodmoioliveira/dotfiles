@@ -182,8 +182,8 @@ set autoread
 "==========================================================
 " Colors
 " ==========================================================
-colorscheme paramount
-let g:airline_theme='dark'
+colorscheme darkness
+let g:airline_theme='distinguished'
 
 " ==========================================================
 " Spaces and Tabs

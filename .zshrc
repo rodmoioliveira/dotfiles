@@ -147,6 +147,9 @@ alias dev='cd ~/Desenvolvimento'
 # Go to DOTFILES dir
 alias dot='cd ~/dotfiles'
 
+# Go to QUERIES dir
+alias queries='dev && cd queries && vimso'
+
 # NPM
 alias nrs='npm run server'
 alias ns='npm start'
@@ -182,4 +185,11 @@ export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
 export STARSHIP_CONFIG=~/dotfiles/.starship.toml
 eval "$(starship init zsh)"
 
-function bff(){ command bat "$1" | tr -d '\040\011\015' | xargs -0 -n 1 -I {} http --ignore-stdin POST :4008/graphql query={} -p hb }
+# Z
+eval "$(zoxide init zsh)"
+
+# Catálogo BFF
+export BFF="http://localhost:4008/graphql"
+export PLAY="http://playground.internal.b2w.io/graphql"
+function bff(){ command bat "$1" | sd " " "" | xargs -0 -n 1 -I {} http --ignore-stdin POST $BFF query={} -p hbHB }
+function play(){ command bat "$1" | sd " " "" | xargs -0 -n 1 -I {} http --ignore-stdin POST $PLAY query={} -p hbHB }
