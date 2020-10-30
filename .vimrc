@@ -96,7 +96,10 @@ Plug 'Olical/conjure', { 'tag': 'v4.5.0' }
 Plug 'dense-analysis/ale'
 
 " JsDocs
-Plug 'heavenshell/vim-jsdoc'
+Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx','typescript'],
+  \ 'do': 'make install'
+\}
 
 " Auto Pair
 Plug 'jiangmiao/auto-pairs'

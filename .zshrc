@@ -193,3 +193,7 @@ export BFF="http://localhost:4008/graphql"
 export PLAY="http://playground.internal.b2w.io/graphql"
 function bff(){ command bat "$1" | sd " " "" | xargs -0 -n 1 -I {} http --ignore-stdin POST $BFF query={} -p hbHB }
 function play(){ command bat "$1" | sd " " "" | xargs -0 -n 1 -I {} http --ignore-stdin POST $PLAY query={} -p hbHB }
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
