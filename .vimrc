@@ -40,9 +40,11 @@ Plug 'jalvesaq/southernlights'
 Plug 'tudurom/bleh.vim'
 Plug 'chr4/jellygrass.vim'
 Plug 'shattered/vimcolors'
-
 Plug 'zaki/zazen'
 Plug 'ryanpcmcquen/true-monochrome_vim'
+
+" PHP smarty
+Plug 'blueyed/smarty.vim'
 
 " git wrapper
 Plug 'tpope/vim-fugitive'
@@ -64,9 +66,6 @@ Plug 'vim-airline/vim-airline'
 
 " official theme repository for vim-airline
 Plug 'vim-airline/vim-airline-themes'
-
-" A tree explorer plugin for vim.
-Plug 'scrooloose/nerdtree'
 
 " A tree explorer plugin for vim.
 Plug 'ntpeters/vim-better-whitespace'
@@ -104,10 +103,7 @@ Plug 'heavenshell/vim-jsdoc', {
 " Auto Pair
 Plug 'jiangmiao/auto-pairs'
 
-" Path Finder
-Plug 'kien/ctrlp.vim'
-
-" Path Finder
+" Closetag
 Plug 'alvan/vim-closetag'
 
 " Autogenerate tags
@@ -136,7 +132,18 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " https://github.com/junegunn/fzf.vim
 Plug 'junegunn/fzf.vim'
 
+" Firevim
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(1) } }
+
+" GO
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 call plug#end()
+
+" ==========================================================
+" vim-sneak
+" ==========================================================
+let g:sneak#label = 1
 
 " ==========================================================
 " Rainbow
@@ -207,7 +214,7 @@ set autoindent
 set smartindent
 
 " stricter rules for C programs
-" set cindent
+set cindent
 
 " ==========================================================
 " YAML file support
@@ -248,12 +255,6 @@ set cmdheight=2
 
 " Add a bit extra margin to the left
 set foldcolumn=1
-
-" ==========================================================
-" NERDTree - Initial Setup
-" ==========================================================
-" autocmd vimenter * NERDTree
-nmap <F6> :NERDTreeToggle<CR>
 
 " ==========================================================
 " Searching

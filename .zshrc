@@ -120,7 +120,7 @@ alias glog='git log'
 alias ghist='git log --oneline --graph --decorate --all'
 alias gd='git diff'
 alias gs='git stash --include-untracked'
-alias go='git open'
+alias gopen='git open'
 alias gcl='git clone'
 alias gri='git rebase -i'
 
@@ -164,6 +164,21 @@ alias cssh='vim /Users/rodolfo.moi/.ssh/'
 alias y='yarn'
 alias yd='yarn dev'
 
+# kubectl
+source <(kubectl completion zsh)
+alias k='kubectl'
+alias kg='kubectl get'
+alias kl='kubectl logs'
+alias kghpa='kubectl get hpa'
+alias kges='kubectl get events'
+alias kgps='kubectl get pods'
+alias kgs='kubectl get services'
+alias kgpv='kubectl get pv'
+alias kgns='kubectl get nodes'
+alias kpf=/Users/rodolfo.moi/Desenvolvimento/shell-cmds/kpf.sh
+alias pp=/Users/rodolfo.moi/Desenvolvimento/shell-cmds/pprof.sh
+alias log-all-pods="kubectl get pods -n acom-npf -o wide | rg catalogo-bff-v2 | sd '   \d.+' '' | xargs -t -L 1 -P 15 -I {} kubectl logs {} -n acom-npf -f"
+
 # Syntax Highlighting
 source /usr/local/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -188,12 +203,20 @@ eval "$(starship init zsh)"
 # Z
 eval "$(zoxide init zsh)"
 
-# Catálogo BFF
-export BFF="http://localhost:4008/graphql"
-export PLAY="http://playground.internal.b2w.io/graphql"
-function bff(){ command bat "$1" | sd " " "" | xargs -0 -n 1 -I {} http --ignore-stdin POST $BFF query={} -p hbHB }
-function play(){ command bat "$1" | sd " " "" | xargs -0 -n 1 -I {} http --ignore-stdin POST $PLAY query={} -p hbHB }
+# GO
+export GOPATH=$HOME/gocode
+export PATH=$PATH:$GOPATH/bin
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# C
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/llvm/lib"
+export CPPFLAGS="-I/usr/local/opt/llvm/include"
