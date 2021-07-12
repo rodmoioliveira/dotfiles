@@ -8,3 +8,5 @@ tags.lock
 tags.temp
 .lsp/
 .DS_Store
+.metals/
+.scalafmt.conf

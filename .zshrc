@@ -168,16 +168,17 @@ alias yd='yarn dev'
 source <(kubectl completion zsh)
 alias k='kubectl'
 alias kg='kubectl get'
-alias kl='kubectl logs'
-alias kghpa='kubectl get hpa'
 alias kges='kubectl get events'
-alias kgps='kubectl get pods'
-alias kgs='kubectl get services'
-alias kgpv='kubectl get pv'
+alias kghpa='kubectl get hpa'
+alias kging='kubectl get ing'
 alias kgns='kubectl get nodes'
+alias kgps='kubectl get pods'
+alias kgpv='kubectl get pv'
+alias kgs='kubectl get services'
+alias kl='kubectl logs'
 alias kpf=/Users/rodolfo.moi/Desenvolvimento/shell-cmds/kpf.sh
+alias log-all-pods="kubectl logs -n acom-npf -l app=catalogo-bff-v2 -f --max-log-requests 20"
 alias pp=/Users/rodolfo.moi/Desenvolvimento/shell-cmds/pprof.sh
-alias log-all-pods="kubectl get pods -n acom-npf -o wide | rg catalogo-bff-v2 | sd '   \d.+' '' | xargs -t -L 1 -P 15 -I {} kubectl logs {} -n acom-npf -f"
 
 # Syntax Highlighting
 source /usr/local/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -195,6 +196,9 @@ export LDFLAGS="-L/usr/local/opt/icu4c/lib"
 export CPPFLAGS="-I/usr/local/opt/icu4c/include"
 
 export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
+
+# Mongo
+export PATH="/Users/rodolfo.moi/Desenvolvimento/mongodb/bin:$PATH"
 
 # Starship Config
 export STARSHIP_CONFIG=~/dotfiles/.starship.toml
