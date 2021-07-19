@@ -2,11 +2,14 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # GraalVM
-export PATH=/Library/Java/JavaVirtualMachines/graalvm-ce-java8-20.2.0/Contents/Home/bin:$PATH
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java11-20.2.0/Contents/Home
+# export PATH=/Library/Java/JavaVirtualMachines/graalvm-ce-java8-20.2.0/Contents/Home/bin:$PATH
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java11-20.2.0/Contents/Home
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/rodolfo.moi/.oh-my-zsh"
+
+# Coursier Scala
+export PATH="$PATH:/Users/rodolfo.moi/Library/Application Support/Coursier/bin"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -201,8 +204,8 @@ export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
 export PATH="/Users/rodolfo.moi/Desenvolvimento/mongodb/bin:$PATH"
 
 # Starship Config
-export STARSHIP_CONFIG=~/dotfiles/.starship.toml
-eval "$(starship init zsh)"
+# export STARSHIP_CONFIG=~/dotfiles/.starship.toml
+# eval "$(starship init zsh)"
 
 # Z
 eval "$(zoxide init zsh)"
